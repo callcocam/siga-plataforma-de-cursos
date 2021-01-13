@@ -1,0 +1,56 @@
+/*  dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:focus:shadow-outline-gray */
+.bg-dark-input-theme{
+    @apply border-gray-600;
+    @apply bg-gray-700;
+    @apply text-gray-100;
+ }
+ /* dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray */
+.bg-dark-input-theme:focus{
+    @apply shadow-outline-gray;
+}
+/* block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm */
+.bg-white-input-theme{
+    @apply border-gray-300;
+    @apply rounded-md;
+    @apply shadow-sm;
+    @apply block;
+    @apply w-full;
+    @apply mt-1;
+    @apply text-sm;
+}
+
+.bg-white-input-theme:focus{
+    @apply border-purple-400;
+    @apply border-purple-400;
+    @apply outline-none;
+    @apply shadow-outline-purple;
+}
+
+.bg-white-radio-theme{
+    @apply w-4;
+    @apply h-4;
+    @apply text-indigo-600;
+    @apply border-gray-300;
+    @apply block;
+    @apply mt-1;
+    @apply text-sm;
+}
+
+.bg-white-radio-theme:focus{
+    @apply ring-indigo-500;
+}
+
+.bg-white-input-group-theme{
+    @apply flex-1;
+    @apply block;
+    @apply w-full;
+    @apply border-gray-300;
+    @apply rounded-none;
+    @apply rounded-r-md;
+}
+
+
+.white-input-group-theme:focus{
+    @apply ring-indigo-500;
+    @apply border-indigo-500;
+}
