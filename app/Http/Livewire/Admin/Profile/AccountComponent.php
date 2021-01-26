@@ -25,6 +25,7 @@ class AccountComponent extends FormComponent
         return [
             Field::make('Name')->input()->rules('required'),
             Field::make('Email')->input()->rules('required'),
+            Field::make('Profile Photo Url')->cover()->rules('required'),
         ];
     }
 

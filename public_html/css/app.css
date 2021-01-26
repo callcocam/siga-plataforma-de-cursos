@@ -48531,6 +48531,72 @@ select {
   border-color: rgba(104, 117, 245, var(--tw-border-opacity));
 }
 
+.btn {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  border-radius: 0.25rem;
+  line-height: 1rem;
+  border-width: 1px;
+}
+
+.btn-block{
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-blue {
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgba(63, 131, 248, var(--tw-bg-opacity));
+}
+
+.btn-blue:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(26, 86, 219, var(--tw-bg-opacity));
+}
+
+.btn-yellow {
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgba(194, 120, 3, var(--tw-bg-opacity));
+}
+
+.btn-yellow:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(142, 75, 16, var(--tw-bg-opacity));
+}
+
+.btn-green {
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgba(14, 159, 110, var(--tw-bg-opacity));
+}
+
+.btn-green:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(4, 108, 78, var(--tw-bg-opacity));
+}
+
+.btn-red {
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgba(240, 82, 82, var(--tw-bg-opacity));
+}
+
+.btn-red:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(200, 30, 30, var(--tw-bg-opacity));
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

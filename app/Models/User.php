@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Traits\HasProfilePhoto;
 
@@ -12,10 +12,6 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasProfilePhoto;
 
-    const DELETED = "deleted";
-    const DRAFT = "draft";
-    const REVISION = "revision";
-    const PUBLISHED = "published";
 
     /**
      * The attributes that are mass assignable.
@@ -47,7 +43,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    
+
     /**
      * The accessors to append to the model's array form.
      *
@@ -57,8 +53,8 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function notfications()
+    public function notifications()
     {
-        return $this->hasMany(Notfication::class);
+        return $this->hasMany(Notification::class);
     }
 }

@@ -23,6 +23,6 @@ class Footer extends Component
      */
     public function render()
     {
-        return view('layouts.admin.footer');
+        return view('layouts.admin.footer')->with('user',auth()->user());
     }
 }

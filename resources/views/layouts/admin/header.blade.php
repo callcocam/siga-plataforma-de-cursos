@@ -1,7 +1,7 @@
 <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
    <div class="container flex items-center justify-between h-full">
        <!-- Mobile hamburger -->
-       <button arial-label="Menu" 
+       <button arial-label="Menu"
        class="p-1 ml-1 mr-5 rounded-md md:hidden focus:outline-none focus-shadow-outline-purple"
        x-on:click="toggleSideMenu"
        aria-label="Menu">
@@ -16,8 +16,8 @@
             d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
             clip-rule="evenodd"
         ></path>
-        </svg> 
-       </button>      
+        </svg>
+       </button>
             <!-- Search input -->
             <div class="flex justify-center flex-1 lg:mr-32">
                 <div class="relative w-full max-w-xl mr-6 focus-within:text-purple-500">
@@ -25,7 +25,7 @@
                         <x-icons.search />
                     </div>
                     <input type="text" class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-500 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input" placeholder="Digite o terno de busca" arial-label="Search">
-                </div>  
+                </div>
             </div>
             <ul class="flex items-center flex-shrink-0 space-x-6">
                   <!-- Theme toggler -->
@@ -53,7 +53,7 @@
                          <span class="absolute top-0 inline-block w-3 h-3 transform translate-x-1 translate-y-1 bg-red-600 border-2 border-white rounded-full dark:border-gray-800"></span>
                       </button>
                       <template x-if="isNotificationsMenuOpen">
-                          <ul 
+                          <ul
                           x-translation:leve="transition ease-in duration-150"
                           x-translation:leve-start="opacity-100"
                           x-translation:leve-end="opacity-0"
@@ -70,7 +70,7 @@
                           @endforeach
                           </ul>
                       </template>
-                  </li>                  
+                  </li>
                   @endif
                   <!-- Profile menu -->
                   <li class="relative">
@@ -81,7 +81,7 @@
                       arial-haspopup="true">
                       <img
                       class="object-cover w-8 h-8 rounded-full"
-                      src="{{ auth()->user()->profile_photo_url }}"
+                      src="{{ $user->profile_photo_url }}"
                       alt=""
                       aria-hidden="true"
                     />
@@ -106,13 +106,13 @@
                               <li class="flex">
                                 <form class="flex flex-1"  method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <a href="{{ route('logout') }}" 
+                                    <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();this.closest('form').submit();"
                                     class="header-notifcation dark:hover:bg-gray-800 dark:hover:text-gray-200">
                                         <x-icons.logout class="mr-3 "></x-icons.logout>
                                         <span>{{ _('Logout')}}</span>
                                     </a>
-                                </form>                                
+                                </form>
                               </li>
                           </ul>
                       </template>

@@ -8,6 +8,9 @@
 namespace App\Http\Livewire\Forms\Traits;
 
 
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
 trait UploadsFiles
 {
     public static function fileUpload()
@@ -25,7 +28,6 @@ trait UploadsFiles
                 'mime_type' => $file->getMimeType(),
             ];
         }
-
         return ['field_name' => request()->input('field_name'), 'uploaded_files' => $files];
     }
 
@@ -33,13 +35,42 @@ trait UploadsFiles
     {
         foreach ($this->fields() as $field) {
             if ($field->name == $field_name) {
-                $value = $field->file_multiple ? array_merge($this->form_data[$field_name], $uploaded_files) : $uploaded_files;
+                if ($field->file_multiple) {
+                    $value = array_merge($this->form_data[$field_name], $uploaded_files);
+                    $this->form_data[$field_name] = $value ?? [];
+                } else {
+                    if ($this->model->image) {
+                        if (!$this->isDeleteUrl($this->model->image->file)) Storage::delete($this->model->image->file);
+                        foreach ($uploaded_files as $file) {
+                            $this->model->image->update($file);
+                            $this->form_data[$field_name] = Storage::url($file['file']);
+                        }
+
+                    }
+                }
                 break;
             }
         }
 
-        $this->form_data[$field_name] = $value ?? [];
         $this->updated('form_data.' . $field_name);
+    }
+
+    public function deleteUploadUrl($file)
+    {
+
+        if (!$this->isDeleteUrl($this->form_data[$file])) {
+            Storage::delete($this->form_data[$file]);
+            if ($this->model->image) {
+                $this->model->image->update([
+                    'file' => "defaults/no_image.png",
+                    'disk' => 'public',
+                    'name' => "no_image.png",
+                    'size' => null,
+                    'mime_type' => 'image/png',
+                ]);
+                $this->setFormProperties($this->model);
+            }
+        }
     }
 
     public function fileIcon($mime_type)
@@ -75,5 +106,11 @@ trait UploadsFiles
         $mime_group = explode('/', $mime_type, 2)[0];
 
         return (isset($icons[$mime_group])) ? $icons[$mime_group] : 'fa-file';
+    }
+
+
+    protected function isDeleteUrl($file)
+    {
+        return Str::contains($file, 'no_image');
     }
 }

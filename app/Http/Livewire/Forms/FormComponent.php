@@ -79,11 +79,9 @@ class FormComponent extends Component
 
     public function submit(){
         $this->validate($this->rules());
-
         $field_names=[];
         foreach ($this->fields() as $field) $field_names[] = $field->name;
         $this->form_data = Arr::only($this->form_data, $field_names);
-
         $this->success();
     }
 
@@ -93,7 +91,7 @@ class FormComponent extends Component
 
     public function errorMessage($message){
 
-        return str_replace('form_data.','', $message);
+        return str_replace('form data.','', $message);
     }
 
     /**

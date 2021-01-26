@@ -23,6 +23,6 @@ class SidebarMobile extends Component
      */
     public function render()
     {
-        return view('layouts.admin.sidebar-mobile');
+        return view('layouts.admin.sidebar-mobile')->with('user',auth()->user());
     }
 }

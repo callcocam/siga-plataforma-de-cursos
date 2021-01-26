@@ -31,7 +31,7 @@
         </div>
     </div>
 </x-form-card>
-@push('js')
+<x-slot name="js">
     <script>
         // Code is inspired by Pastor Ryan Hayden
         // https://github.com/livewire/livewire/issues/106
@@ -54,4 +54,4 @@
             });
         });
     </script>
-@endpush
+</x-slot>

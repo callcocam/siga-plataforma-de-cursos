@@ -15,7 +15,7 @@ class Field extends BaseField
 
     protected $label;
     protected $key;
-    protected $file_multiple;
+    protected $file_multiple= false;
     protected $array_fields = [];
     protected $arry_sortable = false;
 
@@ -46,7 +46,16 @@ class Field extends BaseField
      */
     public function file()
     {
-        $this->file = 'file';
+        $this->type = 'file';
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function cover()
+    {
+        $this->type = 'cover';
         return $this;
     }
 

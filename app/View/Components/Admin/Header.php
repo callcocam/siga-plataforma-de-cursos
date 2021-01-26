@@ -23,6 +23,6 @@ class Header extends Component
      */
     public function render()
     {
-        return view('layouts.admin.header');
+        return view('layouts.admin.header')->with('user',auth()->user());
     }
 }

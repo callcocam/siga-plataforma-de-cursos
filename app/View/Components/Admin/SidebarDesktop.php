@@ -23,6 +23,6 @@ class SidebarDesktop extends Component
      */
     public function render()
     {
-        return view('layouts.admin.sidebar-desktop');
+        return view('layouts.admin.sidebar-desktop')->with('user',auth()->user());
     }
 }
